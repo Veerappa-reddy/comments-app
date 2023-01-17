@@ -1,0 +1,73 @@
+.app-container {
+  height: 100vh;
+  padding: 50px;
+}
+.top-section {
+  display: flex;
+  justify-content: space-around;
+}
+.comment-container {
+  display: flex;
+  flex-direction: column;
+}
+.form-container {
+  display: flex;
+  flex-direction: column;
+}
+.comments-image {
+  width: 250px;
+  height: 200px;
+  align-self: flex-end;
+}
+.line {
+  color: #1e293b;
+  background-color: #cbd2d9;
+  height: 3px;
+  width: 75%;
+}
+.input-name {
+  margin-bottom: 6px;
+  padding: 5px;
+}
+.add-btn {
+  background-color: #0284c7;
+  color: #fff;
+  width: 95px;
+  border-radius: 5px;
+  border: none;
+  margin-top: 5px;
+  font-size: 11px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  font-family: 'Roboto';
+}
+.count {
+  font-size: 10px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 6px;
+  padding-right: 6px;
+  color: #fff;
+  background-color: #0284c7;
+  border-radius: 2px;
+}
+.bottom-section {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  margin-left: 150px;
+  margin-top: 0px;
+}
+.comment-item-container {
+  display: flex;
+  flex-direction: column;
+}
+.comment-user {
+  display: flex;
+}
+.user-icon {
+}
+.like-delete-container {
+  display: flex;
+  justify-content: space-between;
+}
