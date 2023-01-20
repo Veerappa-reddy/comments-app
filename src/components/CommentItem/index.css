@@ -26,4 +26,74 @@
   background-color: #0ea5e9;
 }
 
-/* Write your CSS here */
+.name-container {
+  display: flex;
+  flex-direction: row;
+}
+.comment-container-1 {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  width: 100%;
+}
+.like-image {
+  width: 10px;
+  height: 18 px;
+  padding-top: 5px;
+}
+.like-container {
+  display: flex;
+}
+.delete-btn {
+  width: 15px;
+}
+.horizontal-line {
+  width: 100%;
+  background-color: gray;
+}
+.name-logo {
+  background-color: #f97316;
+  border-radius: 50px;
+  font-size: 7px;
+  color: #fff;
+  padding: 5px;
+  margin-right: 3px;
+}
+.name {
+  font-size: 13px;
+  color: #475569;
+  font-family: 'Roboto';
+  font-weight: 500;
+}
+.comment {
+  font-size: 10px;
+  color: #94a3b8;
+  font-family: 'Roboto';
+  font-weight: 500;
+  padding-left: 15px;
+  margin-top: 0px;
+}
+.normal-like-btn {
+  background-color: transparent;
+  color: #64748b;
+  border: none;
+  font-size: 10px;
+  padding-top: 3px;
+}
+.delete-btn {
+  background-color: transparent;
+  border: none;
+}
+.liking-btn {
+  background-color: transparent;
+  color: #0ea5e9;
+  border: none;
+  font-size: 10px;
+  padding-top: 3px;
+}
+.time {
+  font-size: 10px;
+  color: #cbd2d9;
+  font-weight: 400;
+  padding-left: 3px;
+}

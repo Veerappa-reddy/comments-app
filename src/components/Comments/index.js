@@ -6,20 +6,56 @@ import CommentItem from '../CommentItem'
 
 import './index.css'
 
-const initialContainerBackgroundClassNames = [
-  'amber',
-  'blue',
-  'orange',
-  'emerald',
-  'teal',
-  'red',
-  'light-blue',
-]
+// const initialContainerBackgroundClassNames = [
+//   'amber',
+//   'blue',
+//   'orange',
+//   'emerald',
+//   'teal',
+//   'red',
+//   'light-blue',
+// ]
 
 class Comments extends Component {
-  state = {userName: '', userComment: '', commentsList: []}
+  state = {
+    userName: '',
+    userComment: '',
+    commentsList: [],
+  }
 
-  addComment = event => {
+  likeComment = id => {
+    this.setState(prevState => ({
+      commentsList: prevState.commentsList.map(eachComment => {
+        if (eachComment.id === id) {
+          return {...eachComment, isLiked: !eachComment.isLiked}
+        }
+        return eachComment
+      }),
+    }))
+  }
+
+  deleteComment = id => {
+    const {commentsList} = this.state
+
+    this.setState({
+      commentsList: commentsList.filter(comment => comment.id !== id),
+    })
+  }
+
+  renderCommentItem = () => {
+    const {commentsList} = this.state
+
+    return commentsList.map(eachComment => (
+      <CommentItem
+        key={eachComment.id}
+        commentDetails={eachComment}
+        likeComment={this.likeComment}
+        deleteComment={this.deleteComment}
+      />
+    ))
+  }
+
+  addDetails = event => {
     event.preventDefault()
     const {userName, userComment} = this.state
 
@@ -28,6 +64,7 @@ class Comments extends Component {
       name: userName,
       comment: userComment,
       isLiked: false,
+      date: new Date(),
     }
 
     this.setState(prevState => ({
@@ -35,14 +72,6 @@ class Comments extends Component {
       userName: '',
       userComment: '',
     }))
-  }
-
-  renderCommentItem = () => {
-    const {commentsList} = this.state
-
-    return commentsList.map(eachComment => (
-      <CommentItem key={eachComment.id} commentDetails={eachComment} />
-    ))
   }
 
   addUsername = event => {
@@ -62,7 +91,7 @@ class Comments extends Component {
           <div className="comment-container">
             <h1>Comments</h1>
             <p>Say something about 4.0 technologies</p>
-            <form className="form-container" onSubmit={this.addComment}>
+            <form className="form-container" onSubmit={this.addDetails}>
               <input
                 type="text"
                 className="input-name"
@@ -92,9 +121,9 @@ class Comments extends Component {
         <hr className="line" />
         <div className="bottom-section">
           <p>
-            <span className="count">{commentsList.lenght}</span> Comments
+            <span className="count">{commentsList.length}</span> Comments
           </p>
-          <ul>{this.renderCommentItem()}</ul>
+          <ul className="list-item">{this.renderCommentItem()}</ul>
         </div>
       </div>
     )
